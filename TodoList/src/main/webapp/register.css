@@ -10,8 +10,8 @@ header {
 .inputName, .inputTitle, .inputSequence,
 .buttonWrap {
     text-align: left;
-    margin-left: 670px;
-    margin-right: 700px;
+    margin-left: 300px;
+    margin-right: 300px;
 }
 
 .backButton,
@@ -68,7 +68,4 @@ header {
     margin-left: auto;
 }
 
-p{
-	margin: 10px 0px 20px 0px;	
-}
 
