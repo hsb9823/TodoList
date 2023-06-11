@@ -1,1 +1,3 @@
-# TodoList
+이클립스연결
+톰캣8.5v
+jsp servlet으로 만든 허접한 웹페이지 입니다. 
