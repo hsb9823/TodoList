@@ -7,6 +7,98 @@
 <meta charset="UTF-8">
 <title>TodoList</title>
 <link rel="stylesheet" href="./designtodolist.css"></link>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+    var request = new XMLHttpRequest();
+	function ajax() {
+		  request.open("POST", "./ajaxservlet?id=" + encodeURIComponent(document.getElementById("todoId").value, true));
+		  request.onreadystatechange = changeCard;
+		  request.send();
+	}
+	/* var myJSONObject = {"bindings": [
+		{"ircEvent": "PRIVMSG", "method": "newURI", "regex": "^http://.*"},
+	    {"ircEvent": "PRIVMSG", "method" : "deleteURI", "regex": "^delete.*},
+	    {"ircEvent": "PRIVMSG", "method" : "randomURI", "regex": "^random.*}
+	   ]
+	 }; */
+ 	function searchType() {
+			printjson.innerHTML = "ajax success";
+			if(request.readyState == 4 && request.status == 200){
+				var jsonObject = request.responseText;
+				var o = JSON.parse(jsonObject);
+				console.log(o.result.length);
+				console.log(typeof(o.result[0].Type));
+				console.log("ajax", document.getElementById("todoId").value);
+				console.log("id: ", o.result[0].Id);
+				for(var i = 0; i< o.result.length; i++){
+					if(o.result[i].Id == document.getElementById("todoId").value){
+						//console.log("if", document.getElementById("todoCard").value);
+						//console.log("if", o.result[i].Type);
+						//document.getElementById("todoCard").innerHTML = 'change';
+						var type = o.result[i].Type;
+						console.log("type", type);
+				
+						var ele = document.querySelector(type);
+						var ele2 = document.querySelector("#DOING");
+						ele2.appendChild(ele);
+						console.log("change");
+						
+					}
+				}
+			}
+		}
+	 
+	
+	
+	function changeCard(){
+		/* var id = document.getElementById("todoId").value;  
+		console.log(id);
+		var card = document.getElementsByClassName(id).id;
+ 		console.log(card); */
+		
+ 	
+ 		/* var _this = this;
+		const updateBtns = document.querySelectorAll("#todoCard");
+		updateBtns.forEach(function(item){
+			window.location.reload(true);
+			item.addEventListener('click', addCard()); */
+		
+		}
+		
+	 	
+	 	
+	 	/* var id = document.getElementById("todoId").value;
+	 	var classname = document.getElementById("setclass").value;
+	 	
+ 		console.log("todoId's value : ", document.getElementById("todoId").value);
+ 		console.log(classname);
+ 		document.querySelector("#todocard") */
+ 		/* var classname = document.getElementById("todocard").className;
+ 		console.log(document.getElementById("todocard"));
+ 		console.log("className: ", classname); */
+ 		
+ 		
+	 	function addCard(){
+	 		/* var id = document.getElementById("todoId").value;
+	 		console.log(document.getElementsByClassName(id).todocard);
+	 		var card = document.getElementsByClassName(id).todocard; */
+	 		
+	 		var card = document.getElementById("todoCard");
+	 		card.remove();
+	 		
+	 		/* if(document.getElementById("todocard").className == document.getElementById("todoId").value){
+	 			
+	 			
+	 			console.log("move");
+	 		} */
+ 			/* document.getElementById('todocard').remove();
+ 			document.getElementByClassName().innerHTML= */
+	 		/* document.querySelector("#DOING").appendChild(document.querySelector("#todocard")); */
+
+ 		}
+		
+	
+</script>
 </head>
 <body>
     <div class="wrap">
